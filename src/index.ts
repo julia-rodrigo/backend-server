@@ -12,6 +12,9 @@ require("dotenv").config()
 
 const app = express ();
 
+const HOST_SERVER = process.env.HOST_SERVER;
+const PORT = process.env.PORT;
+
 app.use(cors({
     credentials: true
 }))
@@ -23,7 +26,7 @@ app.use(bodyParser.json());
 const server = http.createServer(app)
 
 server.listen(8080, () => {
-    console.log('Server running on', process.env.HOSTNAME)
+    console.log(`Server running on http://${HOST_SERVER}:${PORT}`)
 })
 
 const MONGO_URL = process.env.DATABASE_URL;

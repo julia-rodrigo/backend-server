@@ -3,6 +3,14 @@
 ### 
 GET {{hostname}}/users
 
+###
+PATCH {{hostname}}/users/64af0e5b5de5d477286521af
+Content-Type: application/json
+
+{
+    "username":    "GOOSE ON CAPS (updated)"
+}
+
 ### delete goose
 DELETE {{hostname}}/users/64aefe347ed4e9cc4f53b0a4
 

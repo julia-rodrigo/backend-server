@@ -4,6 +4,7 @@ import { get, merge } from 'lodash';
 import { getUserBySessionToken } from '../db/users';
 
 require('dotenv').config() 
+const COOKIE = process.env.COOKIE;
 
 export const isOwner = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
     try {
@@ -20,7 +21,7 @@ export const isOwner = async (req: express.Request, res: express.Response, next:
         if (currentUserId.toString() != id) {
             return res.status(403).json({
                 directory: "src/middlewares/index.ts",
-                message: "Only the owner can delete this account"
+                message: "Only the owner can make changes to this account"
             })
         }
 
@@ -38,7 +39,7 @@ export const isAuthenticated = async (req: express.Request, res: express.Respons
     try {
 
         // return res.json({ message: "duck duck goose!"});
-        const sessionToken = req.cookies[process.env.COOKIE];
+        const sessionToken = req.cookies[COOKIE];
 
         if (!sessionToken) {
             return res.status(403).json({

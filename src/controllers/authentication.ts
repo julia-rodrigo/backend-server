@@ -4,6 +4,7 @@ import { createUser, getUserByEmail } from '../db/users';
 import { authentication, random } from '../helpers';
 
 require('dotenv').config();
+const COOKIE = process.env.COOKIE;
 
 export const login = async (req: express.Request, res: express.Response) => {
     try {
@@ -40,7 +41,7 @@ export const login = async (req: express.Request, res: express.Response) => {
 
         await user.save();
 
-        res.cookie(process.env.COOKIE, 
+        res.cookie(COOKIE, 
             user.authentication.sessionToken, 
             { domain: 'localhost', path: '/' }
         )
