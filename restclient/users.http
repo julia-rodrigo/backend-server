@@ -1,0 +1,18 @@
+# @hostname = http://localhost:8080
+
+### 
+GET {{hostname}}
+
+#### make sure to remove any commas from the last json
+POST {{hostname}}/auth/register
+Content-Type: application/json
+
+{
+    "email":    "poofy@hello.com",
+    "password": "hithere",
+    "username": "first poofy from backend"
+}
+
+###
+GET {{hostname}}/auth-endpoint
+Authorization: {{apiKey}}

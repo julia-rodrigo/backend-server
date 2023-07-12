@@ -1,0 +1,13 @@
+npm init -y
+npm i -d typescript
+npm i -d ts-node
+npm i -d nodemon
+
+npm i express http body-parser cookie-parser compression cors
+npm i -d @types/express @types/body-parser @types/cookie-parser @types/compression @types/cors
+npm i mongoose
+npm i -d @type/mongoose
+
+npm i dotenv
+
+This is a REST Api I made from scratch using node and express through following the youTube video https://www.youtube.com/watch?v=b8ZUb_Okxro by Coding with Antonio. I am able to GET, POST, UPDATE, DELETE users from my mongodb database. I tested with VS extension Rest Client.
