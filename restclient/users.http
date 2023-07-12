@@ -1,7 +1,41 @@
 # @hostname = http://localhost:8080
 
 ### 
-GET {{hostname}}
+GET {{hostname}}/users
+
+### delete goose
+DELETE {{hostname}}/users/64aefe347ed4e9cc4f53b0a4
+
+###
+
+POST {{hostname}}/auth/register
+Content-Type: application/json
+
+{
+    "email":    "goose@goldilock.io",
+    "password": "hithere",
+    "username": "that goose from the golden egg"
+}
+
+###
+
+POST {{hostname}}/auth/login
+Content-Type: application/json
+
+{
+    "email":    "goose@goldilock.io",
+    "password": "hithere"
+}
+
+###
+
+POST {{hostname}}/auth/login
+Content-Type: application/json
+
+{
+    "email":    "poofy@hello.com",
+    "password": "hithere"
+}
 
 #### make sure to remove any commas from the last json
 POST {{hostname}}/auth/register
@@ -15,14 +49,17 @@ Content-Type: application/json
 
 ###
 
-POST {{hostname}}/auth/login
+POST {{hostname}}/auth/register
 Content-Type: application/json
 
 {
-    "email":    "poofy@hello.com",
-    "password": "hithere"
+    "email":    "tendomaya@causewhynot.sure",
+    "password": "hithere",
+    "username": "this is tendo maya surely"
 }
 
 ###
 GET {{hostname}}/auth-endpoint
 Authorization: {{apiKey}}
+
+###

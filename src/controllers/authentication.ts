@@ -10,20 +10,29 @@ export const login = async (req: express.Request, res: express.Response) => {
         const { email, password } = req.body;
 
         if (!email || !password) {
-            return res.sendStatus(400);
+            return res.status(400).json({
+                    directory: "src/controllers/authentication.ts",
+                    message: "no user found with this email or password"
+                });
         }
 
         const user = await getUserByEmail(email)
-                            .select("+authentication.salt +authentication.password")
+                        .select("+authentication.salt +authentication.password")
 
         if (!user) {
-            return res.sendStatus(400);
+            return res.status(400).json({
+                    directory: "src/controllers/authentication.ts",
+                    message: "no user found with this credentials"
+                });
         }
 
         const expectedHash = authentication(user.authentication.salt, password)
 
         if (user.authentication.password != expectedHash) {
-            return res.sendStatus(403)
+            return res.status(403).json({
+                    directory: "src/controllers/authentication.ts",
+                    message: "the password not equal to expected hash, rejected"
+                });
         }
 
         const salt = random();
@@ -36,11 +45,14 @@ export const login = async (req: express.Request, res: express.Response) => {
             { domain: 'localhost', path: '/' }
         )
 
-        return res.status(200).json(user);
+        return res.status(200).json({ login_user: user});
 
     } catch (error) {
         console.log(error);
-        return res.sendStatus(400);
+        return res.status(400).json({
+                directory: "src/controllers/authentication.ts",
+                message: "login error emitted"
+            });
     }
 }
 
@@ -52,13 +64,19 @@ export const register = async (req: express.Request, res: express.Response) => {
         const { email, password, username } = req.body;
     
         if (!email || !password || !username) {
-            return res.sendStatus(400);
+            return res.status(400).json({
+                    directory: "src/controllers/authentication.ts",
+                    message: "no user with this email or password or username found"
+                });
         }
 
         const existingUser = await getUserByEmail (email);
 
         if (existingUser) {
-            return res.sendStatus(400);
+            return res.status(400).json({
+                    directory: "src/controllers/authentication.ts",
+                    message: "This user already exists"
+                });
         }
 
         const salt = random();
@@ -72,10 +90,13 @@ export const register = async (req: express.Request, res: express.Response) => {
             }
         })
 
-        return res.status(200).json(user).end();
+        return res.status(200).json({ created_user: user}).end();
 
     } catch (error) {
         console.log(error);
-        return res.sendStatus(400)
+        return res.status(400).json({
+            directory: "src/controllers/authentication.ts",
+            message: "register error emitted"
+        });
     }
 }

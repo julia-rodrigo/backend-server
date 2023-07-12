@@ -10,4 +10,5 @@ npm i -d @type/mongoose
 
 npm i dotenv
 
-This is a REST Api I made from scratch using node and express through following the youTube video https://www.youtube.com/watch?v=b8ZUb_Okxro by Coding with Antonio. I am able to GET, POST, UPDATE, DELETE users from my mongodb database. I tested with VS extension Rest Client.
+npm i lodash
+npm i -d @types/lodash
