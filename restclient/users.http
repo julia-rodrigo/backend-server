@@ -14,5 +14,15 @@ Content-Type: application/json
 }
 
 ###
+
+POST {{hostname}}/auth/login
+Content-Type: application/json
+
+{
+    "email":    "poofy@hello.com",
+    "password": "hithere"
+}
+
+###
 GET {{hostname}}/auth-endpoint
 Authorization: {{apiKey}}
