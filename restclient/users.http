@@ -1,5 +1,5 @@
 # @hostname = http://localhost:8080
-
+# THIS PORT IS 8080 MAKE SURE YOURS IS 8080 TOO
 ### 
 GET {{hostname}}/users
 
@@ -64,6 +64,17 @@ Content-Type: application/json
     "email":    "tendomaya@causewhynot.sure",
     "password": "hithere",
     "username": "this is tendo maya surely"
+}
+
+###
+
+POST {{hostname}}/auth/register
+Content-Type: application/json
+
+{
+    "email":    "guitargirl@buskingformoney.help",
+    "password": "hithere",
+    "username": "Please listen to my music :)"
 }
 
 ###

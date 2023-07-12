@@ -13,7 +13,7 @@ export const login = async (req: express.Request, res: express.Response) => {
         if (!email || !password) {
             return res.status(400).json({
                     directory: "src/controllers/authentication.ts",
-                    message: "no user found with this email or password"
+                    message: "No user found with this email or password"
                 });
         }
 
@@ -23,7 +23,7 @@ export const login = async (req: express.Request, res: express.Response) => {
         if (!user) {
             return res.status(400).json({
                     directory: "src/controllers/authentication.ts",
-                    message: "no user found with this credentials"
+                    message: "No user found with this credentials"
                 });
         }
 
@@ -32,7 +32,7 @@ export const login = async (req: express.Request, res: express.Response) => {
         if (user.authentication.password != expectedHash) {
             return res.status(403).json({
                     directory: "src/controllers/authentication.ts",
-                    message: "the password not equal to expected hash, rejected"
+                    message: "The password not equal to expected hash, rejected"
                 });
         }
 
@@ -52,7 +52,7 @@ export const login = async (req: express.Request, res: express.Response) => {
         console.log(error);
         return res.status(400).json({
                 directory: "src/controllers/authentication.ts",
-                message: "login error emitted"
+                message: "Login error emitted"
             });
     }
 }
@@ -67,7 +67,7 @@ export const register = async (req: express.Request, res: express.Response) => {
         if (!email || !password || !username) {
             return res.status(400).json({
                     directory: "src/controllers/authentication.ts",
-                    message: "no user with this email or password or username found"
+                    message: "No user with this email or password or username found"
                 });
         }
 
@@ -97,7 +97,7 @@ export const register = async (req: express.Request, res: express.Response) => {
         console.log(error);
         return res.status(400).json({
             directory: "src/controllers/authentication.ts",
-            message: "register error emitted"
+            message: "Register error emitted"
         });
     }
 }

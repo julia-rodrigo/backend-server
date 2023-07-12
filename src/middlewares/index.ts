@@ -30,7 +30,7 @@ export const isOwner = async (req: express.Request, res: express.Response, next:
         console.log(error);
         return res.status(400).json({
             directory: "src/middlewares/index.ts",
-            message: "owner error emitted"
+            message: "Owner error emitted"
         })
     }
 }
@@ -44,7 +44,7 @@ export const isAuthenticated = async (req: express.Request, res: express.Respons
         if (!sessionToken) {
             return res.status(403).json({
                     directory: "src/middlewares/index.ts",
-                    message: "session token not found"
+                    message: "Session token not found"
                 })
         }
 

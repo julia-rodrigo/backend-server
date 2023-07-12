@@ -10,7 +10,7 @@ export const getAllUsers = async (req: express.Request, res: express.Response) =
         console.log(error)
         return res.status(400).json({ 
                 directory: "src/controllers/users.ts",
-                message: "cannot get all users @getUsers()"
+                message: "Cannot get all users @getUsers()"
             })
     }
 };
@@ -27,7 +27,7 @@ export const deleteUser = async (req: express.Request, res: express.Response) =>
         console.log(error);
         return res.status(400).json({
                 directory: "src/controllers/users.ts",
-                message: "deleting error emitted"
+                message: "Deleting error emitted"
             })
     }
 }
@@ -58,7 +58,7 @@ export const updateUser = async (req: express.Request, res: express.Response) =>
         console.log(error);
         return res.status(400).json({
                 directory: "src/controllers/users.ts",
-                message: "updating error emitted"
+                message: "Updating error emitted"
             })
     }
 }

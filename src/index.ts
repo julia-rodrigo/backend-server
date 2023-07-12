@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 
 const server = http.createServer(app)
 
-server.listen(8080, () => {
+server.listen(PORT, () => {
     console.log(`Server running on http://${HOST_SERVER}:${PORT}`)
 })
 
